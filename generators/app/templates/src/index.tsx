@@ -30,7 +30,7 @@ const Register = Loadable({
   loading: () => null
 });
 const User = Loadable({
-  loader: () => import(/* webpackChunkName: 'user' */ './page/test/user'),
+  loader: () => import(/* webpackChunkName: 'user' */ './page/test/detail'),
   loading: ContentLoading
 });
 const Exception = Loadable({

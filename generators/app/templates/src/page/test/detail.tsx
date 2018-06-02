@@ -8,10 +8,10 @@ import { applyMiddleware, createStore, Dispatch } from 'redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
-import reducer, { changeLabel, changeScore, changeComment, changeGolden, changePage, updateList, updateQuery, StateInfo } from './../../reducer/test/detail';
+import reducer, { changeDate, updateList, StateInfo } from './../../reducer/user/detail';
 import { storeMiddleware } from './../../middleware';
 import { Api } from './../../config';
-import './../../style/test/detail.less';
+import './../../style/user/detail.less';
 
 export type UserPropsInfo = StateInfo & DispatchProp & {
 }
@@ -31,7 +31,7 @@ class UserComp extends React.Component<UserPropsInfo, UserStateInfo> {
   }
 
   componentWillMount() {
-    this.props.dispatch<any>(updateList(yestoday));
+    this.props.dispatch<any>(updateList(this.props.formData));
   }
 
   onDateChange = (date: moment.Moment, dateString: string) => {
@@ -39,10 +39,7 @@ class UserComp extends React.Component<UserPropsInfo, UserStateInfo> {
   }
 
   render() {
-    const { page, data, formData } = this.props;
-    const total = data && data.length || 0;
-    const queryData = data[page - 1 || 0];
-    const submitEnabled = !!Object.keys(formData).length;
+    const { data, formData } = this.props;
 
     return (
       <div className='test-user'>

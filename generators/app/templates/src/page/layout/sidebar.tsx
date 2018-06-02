@@ -23,7 +23,7 @@ export class Sidebar extends React.Component<ISidebarProps, ISidebarState> {
     super(props);
 
     this.state = {
-      current: 'feedback',
+      current: 'dashboard',
       theme: 'dark'
     };
   }
@@ -59,19 +59,18 @@ export class Sidebar extends React.Component<ISidebarProps, ISidebarState> {
           defaultSelectedKeys={ [current] }
           mode='inline'
         >
-          {/* <Item key='dashboard'>
+          <Item key='dashboard'>
             <Link to='/'>
               <Icon type="dashboard" />
               <span>Dashboard</span>
             </Link>
-          </Item> */}
-          <SubMenu
-            key='code'
-            title={ <span><Icon type='tool' /><span>Skill lab</span></span> }
-          >
-            <Item key='feedback'><Link to='/skill-lab/feedback' >Feedback</Link></Item>
-            <Item key='analysis'><Link to='/skill-lab/analysis' >Analysis</Link></Item>
-          </SubMenu>
+          </Item>
+          <Item key='users'>
+            <Link to='/users'>
+              <Icon type="user" />
+              <span>Users</span>
+            </Link>
+          </Item>
         </Menu>
       </div>
     );

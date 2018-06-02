@@ -9,7 +9,7 @@
     "dev": "npm run clean && nat dev",
     "dev-joint": "npm run clean && nat dev",
     "build": "npm run clean && nat build",
-    "server": "nodemon ./dist/server.js",
+    "server": "node ./dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "naturali.io",

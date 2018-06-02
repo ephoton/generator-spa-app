@@ -3,13 +3,12 @@ import { Dispatch, AnyAction } from 'redux';
 import * as moment from 'moment';
 import * as _ from 'lodash';
 
-import { Api, GetReviewSearchInfo } from './../../config';
+import { Api } from './../../config';
 
 export interface StateInfo {
   loading: boolean;
   data: {}[],
   formData: FormDataInfo;
-  total: number;
 };
 
 export type PayloadInfo = {
@@ -17,7 +16,7 @@ export type PayloadInfo = {
 }
 
 export type FormDataInfo = {
-  [K in keyof GetReviewSearchInfo]: GetReviewSearchInfo[K];
+  date: string;
 }
 
 export const defaultState: PayloadInfo = {
@@ -43,7 +42,7 @@ const changeList = createAction('change_list', (data: any[], formData: FormDataI
 
 export const updateList = (formData: FormDataInfo) => {
   return (dispatch: Dispatch) => {
-    Api.skilllab.getReviewSearch(formData).then(({ data: res}) => {
+    Api.common.getUsers.then(({ data: res}) => {
       const data = res.data || [];
 
       dispatch(changeList(data, formData));
