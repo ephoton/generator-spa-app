@@ -1,0 +1,13 @@
+{
+  "outDir": "./dist",
+  "entry": "./src/index.tsx",
+  "server": {
+    "port": 3000,
+    "static": "./static",
+    "view": "./view"
+  },
+  "mock": {
+    "path": "./mock",
+    "active": true
+  }
+}
